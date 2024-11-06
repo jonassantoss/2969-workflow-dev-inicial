@@ -1,17 +1,17 @@
-name: pre-push
-on:
-  push:
-    branches-ignore:
-      - main
-jobs:
-  test:
-    name: Linter
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
+name: pre-push # Nome do workflow
+on: # Ao rodar
+  push: # Um push acontece
+    branches-ignore: # Ignora os branches
+      - main # Ignora o branch main
+jobs: # Jobs
+  test: # Roda um job test
+    name: Linter # Nome do job
+    runs-on: ubuntu-latest # Roda na versão mais recente do ubuntu
+    steps: # Etapas
+      - uses: actions/checkout@v3 # Usa o checkout do repositório
+      - uses: actions/setup-node@v3 # Instala o node
+        with: # Com parametros
+          node-version: 18 # Versão do node
       - name: Instala as dependencias
         run: npm i
       - name: Roda o linter
