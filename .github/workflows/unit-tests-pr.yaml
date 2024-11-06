@@ -1,18 +1,18 @@
-name: testes-unitarios
-on:
-  pull_request:
-    types: [ opened, synchronize ]
-    branches:
-      - main
-jobs:
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+name: testes-unitarios # Nome do workflow
+on: # É executado quando...
+  pull_request: # Ao abrir ou atualizar uma pull request
+    types: [ opened, synchronize ] # Quando ocorrer um dos eventos
+    branches: # Nas branches...
+      - main # main
+jobs: # Jobs
+  test: # Nome do job
+    name: Test # Nome do job
+    runs-on: ubuntu-latest # Roda na versão mais recente do ubuntu
+    steps: # Etapas
+      - uses: actions/checkout@v3 # Checkout
+      - uses: actions/setup-node@v3 # Instala o node
         with:
-          node-version: 18
+          node-version: 18 # Versão do node
       - name: Instala as dependencias
         run: npm i
       - name: Roda os testes
